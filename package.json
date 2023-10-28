@@ -1,5 +1,5 @@
 {
-  "name": "diva-score-lib",
+  "name": "@elilemons/diva-score-lib",
   "version": "0.0.1",
   "description": "The library of types and utils for the app DIVA Score.",
   "main": "dist/index.js",
