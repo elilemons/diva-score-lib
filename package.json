@@ -1,0 +1,24 @@
+{
+  "name": "diva-score-lib",
+  "version": "0.0.1",
+  "description": "The library of types and utils for the app DIVA Score.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elilemons/diva-score-lib.git"
+  },
+  "author": "Eli Lemons",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "tsc": "^2.0.4",
+    "typescript": "^4.6.4"
+  },
+  "files": [
+    "dist"
+  ]
+}
