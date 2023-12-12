@@ -10,10 +10,10 @@ export interface Config {
   collections: {
     admins: Admin;
     surveys: Survey;
-    "question-sets": QuestionSet;
+    'question-sets': QuestionSet;
     users: User;
-    "payload-preferences": PayloadPreference;
-    "payload-migrations": PayloadMigration;
+    'payload-preferences': PayloadPreference;
+    'payload-migrations': PayloadMigration;
   };
   globals: {};
 }
@@ -33,7 +33,7 @@ export interface Admin {
 export interface Survey {
   id: string;
   title?: string | null;
-  status?: ("started" | "uncompleted" | "completed") | null;
+  status?: ('started' | 'uncompleted' | 'completed') | null;
   surveyDate: string;
   surveyUser?: (string | null) | User;
   surveyQuestionSets?: (string | QuestionSet)[] | null;
@@ -62,6 +62,7 @@ export interface QuestionSet {
   active?: boolean | null;
   title?: string | null;
   pointValue?: number | null;
+  pointsEarned?: number | null;
   order?: number | null;
   questions?: QuestionBlock[] | null;
   updatedAt: string;
@@ -70,13 +71,14 @@ export interface QuestionSet {
 export interface QuestionBlock {
   questionFieldName: string;
   questionOrder: number;
+  requiredForSetPoint?: boolean | null;
   questionTextFields: {
     question: string;
     answer: (AnswerCheckboxBlock | AnswerTextBlock | AnswerRichTextBlock)[];
   };
   id?: string | null;
   blockName?: string | null;
-  blockType: "questionBlock";
+  blockType: 'questionBlock';
 }
 export interface AnswerCheckboxBlock {
   answerCheckboxFields?: {
@@ -85,7 +87,7 @@ export interface AnswerCheckboxBlock {
   };
   id?: string | null;
   blockName?: string | null;
-  blockType: "answerCheckboxBlock";
+  blockType: 'answerCheckboxBlock';
 }
 export interface AnswerTextBlock {
   answerTextFields?: {
@@ -94,12 +96,12 @@ export interface AnswerTextBlock {
   };
   id?: string | null;
   blockName?: string | null;
-  blockType: "answerTextBlock";
+  blockType: 'answerTextBlock';
 }
 export interface AnswerRichTextBlock {
   answerRichTextFields?: {
     answerRichTextFieldLabel?: string | null;
-    answerTextValue?:
+    answerRichTextValue?:
       | {
           [k: string]: unknown;
         }[]
@@ -107,17 +109,17 @@ export interface AnswerRichTextBlock {
   };
   id?: string | null;
   blockName?: string | null;
-  blockType: "answerRichTextBlock";
+  blockType: 'answerRichTextBlock';
 }
 export interface PayloadPreference {
   id: string;
   user:
     | {
-        relationTo: "admins";
+        relationTo: 'admins';
         value: string | Admin;
       }
     | {
-        relationTo: "users";
+        relationTo: 'users';
         value: string | User;
       };
   key?: string | null;
